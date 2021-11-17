@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="/ninjas/make" method="post">
+            <div>
+                <label for="dojo">Dojo Places!</label>
+                <select name="dojo_id">
+                    <option value="">--Select One--</option>
+                    {% for dojo in dojos %}
+                    <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th><label for="first_name">First Name: </label></th>
+                        <th><input type="text" name="first_name"></th>
+                        <th><label for="last_name">Last Name: </label></th>
+                        <th><input type="text" name="last_name"></th>
+                        <th><label for="age">Age: </label></th>
+                        <th><input type="text" name="age"></th>
+                    </tr>
+                </thead>
+            </table>
+            <button>Add Ninja!</button>
+        </form>
+        <a href="/"><button>Home</button></a>
+    </div>
+</body>
+</html>

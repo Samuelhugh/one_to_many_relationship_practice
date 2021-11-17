@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"> -->
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="row">
+        <div class="column">
+            <h1>New Dojo!</h1>
+            <form action="/dojos/create" method="post">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <label for="name">Name:</label>
+                            </th>
+                            <th>
+                                <input type="text" name="name">
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <button>Add Dojo</button>
+            </form>
+        </div>
+        <div class="column-1">
+            <table>
+                <thead>
+                    <tr>
+                        <th> | Dojo Name | </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dojo in dojos: %}
+                    <tr>
+                        <td><a href="/dojos/{{ dojo.id }}">{{ dojo.name }} | </a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="/ninjas"><button>Add Ninja!</button></a>
+        </div>
+    </div>
+</body>
+</html>
